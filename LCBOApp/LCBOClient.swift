@@ -46,26 +46,8 @@ class LCBOClient {
                         }
                         //print(imageURL)
                         self.productModel.append(ProductModel(productName: productName, productPrice: productPrice, imageURL: imageURL))
-                        //let productModel = [ProductModel(productName: productName, productPrice: productPrice, imageURL: imageURL)]
                     }
                 }
-        }
-        
-    }
-    
-    func downloadImage(imageURL: String) {
-        
-        Alamofire.request(.GET, "https://httpbin.org/image/png")
-            .responseImage { response in
-                debugPrint(response)
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
-                
-                if let image = response.result.value {
-                    print("image download: \(image)")
-                }
-                
         }
         
     }

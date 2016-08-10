@@ -23,7 +23,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     let cellsPerRowInPortrait: CGFloat = 1
     let cellsPerRowInLandscape: CGFloat = 2
-    let minimumSpacingPerCell: CGFloat = 5
+    let minimumSpacingPerCell: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         var width: CGFloat!
         
+        // change collectionView layout depending on orientation
         if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
             width = (CGFloat(productCollectionView.frame.size.width) / cellsPerRowInLandscape) - (minimumSpacingPerCell - (minimumSpacingPerCell / cellsPerRowInLandscape))
         } else {
@@ -85,10 +86,9 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // Mark: UICollectionViewDelegate
 
-    // Mark:
+    // Mark: refresh
 
-    @IBAction func reloadButton(sender: AnyObject) {
-        print(LCBOClient.sharedInstance().productModel.count)
+    @IBAction func refreshButton(sender: AnyObject) {
         productCollectionView.reloadData()
     }
     
