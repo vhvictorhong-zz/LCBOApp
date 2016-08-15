@@ -14,6 +14,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     @IBOutlet var productCollectionView: UICollectionView!
     var productModel = [ProductModel]()
+    var selectedCellIndex = 0
     
     // collectionView layout initializer
     let cellReuseIdentifier = "ProductCollectionViewCell"
@@ -42,33 +43,6 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         productCollectionView.collectionViewLayout = layout
         
     }
-    /*override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        let layout = UICollectionViewFlowLayout()
-        
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumLineSpacing = minimumSpacingPerCell
-        layout.minimumInteritemSpacing = minimumSpacingPerCell
-        
-        var width: CGFloat!
-        
-        // change collectionView layout depending on orientation
-        if UIApplication.sharedApplication().statusBarOrientation.isLandscape == true {
-            width = (CGFloat(productCollectionView.frame.size.width) / cellsPerRowInLandscape) - (minimumSpacingPerCell - (minimumSpacingPerCell / cellsPerRowInLandscape))
-        } else {
-            width = (CGFloat(productCollectionView.frame.size.width) / cellsPerRowInPortrait) - (minimumSpacingPerCell - (minimumSpacingPerCell / cellsPerRowInPortrait))
-        }
-        
-        layout.itemSize = CGSize(width: width, height: width)
-        productCollectionView.collectionViewLayout = layout
-        
-    }*/
-    
-    /*override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-    }*/
-
     
     // Mark: UICollectionViewDataSource
     
@@ -90,11 +64,21 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     // Mark: UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedCellIndex = indexPath.row
+        self.performSegueWithIdentifier("showDetailProductViewController", sender: self)
+    }
 
     // Mark: refresh
 
     @IBAction func refreshButton(sender: AnyObject) {
         productCollectionView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let detailProductViewController = segue.destinationViewController as! DetailProductViewController
+        detailProductViewController.selectedCellIndex = self.selectedCellIndex
     }
     
 }

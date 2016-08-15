@@ -11,14 +11,22 @@ import UIKit
 
 class ProductModel {
     
+    var id: Int
     var productName: String
     var productPrice: Int
     var imageURL: String
+    var package: String
+    var inventory: Int
+    var style: String
 
-    init(productName: String, productPrice: Int, imageURL: String) {
+    init(id: Int, productName: String, productPrice: Int, imageURL: String, package: String, inventory: Int, style: String) {
+        self.id = id
         self.productName = productName
         self.productPrice = productPrice
         self.imageURL = imageURL
+        self.package = package
+        self.inventory = inventory
+        self.style = style
     }
     
 }

@@ -28,24 +28,43 @@ class LCBOClient {
                     
                     for productIndex in products {
                         
+                        guard let id = productIndex["id"] as? Int else {
+                            print("could not get product id")
+                            return
+                        }
+                        
                         guard let productName = productIndex["name"] as? String else {
                             print("could not get product name")
                             return
                         }
-                        //print(productName)
                         
                         guard let productPrice = productIndex["price_in_cents"] as? Int else {
                             print("could not get product price")
                             return
                         }
-                        //print(productPrice)
                         
                         guard let imageURL = productIndex["image_url"] as? String else {
                             print("could not get product image")
                             return
                         }
-                        //print(imageURL)
-                        self.productModel.append(ProductModel(productName: productName, productPrice: productPrice, imageURL: imageURL))
+                        
+                        guard let package = productIndex["package"] as? String else {
+                            print("could not get package name")
+                            return
+                        }
+                        
+                        guard let inventory = productIndex["inventory_count"] as? Int else {
+                            print("could not get inventory count")
+                            return
+                        }
+                        
+                        guard let style = productIndex["style"] as? String else {
+                            print("could not get style name")
+                            return
+                        }
+                        
+                        self.productModel.append(ProductModel(id: id, productName: productName, productPrice: productPrice, imageURL: imageURL, package: package, inventory: inventory, style: style))
+                        
                     }
                 }
         }
