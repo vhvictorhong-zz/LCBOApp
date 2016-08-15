@@ -13,7 +13,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productNameLabel: UILabel!
     @IBOutlet var productPriceLabel: UILabel!
     
-    func setupProductModel(productModel: ProductModel) {
+    func setupProductCell(productModel: ProductModel) {
         
         // Convert price to currency style
         let formatter = NSNumberFormatter()
@@ -35,6 +35,5 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.backgroundView = imageView
         
     }
-    
     
 }

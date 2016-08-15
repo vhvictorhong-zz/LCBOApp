@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HanabiCollectionViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LCBOApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>725532B925B495B8C056C4DDB4380F15</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>875DEEA7122CDE5F3869BF226A76FA8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAB339F5EF0A160967D86A30FA6F29D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

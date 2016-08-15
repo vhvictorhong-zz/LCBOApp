@@ -8,7 +8,7 @@ target 'LCBOApp' do
   # Pods for LCBOApp
   pod 'Alamofire', '~> 3.4'
   pod 'AlamofireImage', '~> 2.0'
-
+  pod "HanabiCollectionViewLayout", :git => 'https://github.com/kshin/Hanabi'
   target 'LCBOAppTests' do
     inherit! :search_paths
     # Pods for testing

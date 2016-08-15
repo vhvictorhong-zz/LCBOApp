@@ -13,8 +13,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     @IBOutlet var productCollectionView: UICollectionView!
     
-    var productModel = [ProductModel]()
-    
+    // request keys
     let headers = ["Authorization": "Token token=MDo5MDY0NmQ2ZS01ZGNiLTExZTYtYTBjZi03N2Q5NGU0YmYzOGI6V1VWWVk5Qmp4MXFOM2FDTGNVTTZvRm1kQ0ppMldkV2EzV0dK"]
     let url = "https://lcboapi.com/products"
     
@@ -34,7 +33,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
 
         // Make request
         LCBOClient.sharedInstance().downloadProducts(url, headers: headers)
-       
+        
     }
     
     // Setup collectionView layout
@@ -74,13 +73,14 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return LCBOClient.sharedInstance().productModel.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! ProductCollectionViewCell
         let product = LCBOClient.sharedInstance().productModel[indexPath.row]
-        cell.setupProductModel(product)
+        cell.setupProductCell(product)
         return cell
     }
     
