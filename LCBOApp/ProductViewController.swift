@@ -8,14 +8,12 @@
 
 import UIKit
 import Alamofire
+import HanabiCollectionViewLayout
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet var productCollectionView: UICollectionView!
-    
-    // request keys
-    let headers = ["Authorization": "Token token=MDo5MDY0NmQ2ZS01ZGNiLTExZTYtYTBjZi03N2Q5NGU0YmYzOGI6V1VWWVk5Qmp4MXFOM2FDTGNVTTZvRm1kQ0ppMldkV2EzV0dK"]
-    let url = "https://lcboapi.com/products"
+    var productModel = [ProductModel]()
     
     // collectionView layout initializer
     let cellReuseIdentifier = "ProductCollectionViewCell"
@@ -30,14 +28,21 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Set collection dataSource and delegate
         productCollectionView.dataSource = self
         productCollectionView.delegate = self
-
-        // Make request
-        LCBOClient.sharedInstance().downloadProducts(url, headers: headers)
         
     }
     
     // Setup collectionView layout
     override func viewDidLayoutSubviews() {
+        
+        let layout = HanabiCollectionViewLayout()
+        layout.standartHeight = 200.00
+        layout.focusedHeight = 350.00
+        layout.dragOffset = 200.00
+        
+        productCollectionView.collectionViewLayout = layout
+        
+    }
+    /*override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         let layout = UICollectionViewFlowLayout()
@@ -58,11 +63,11 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         layout.itemSize = CGSize(width: width, height: width)
         productCollectionView.collectionViewLayout = layout
         
-    }
+    }*/
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    /*override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-    }
+    }*/
 
     
     // Mark: UICollectionViewDataSource
@@ -73,7 +78,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+    
         return LCBOClient.sharedInstance().productModel.count
     }
     
