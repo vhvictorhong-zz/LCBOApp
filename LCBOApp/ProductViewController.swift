@@ -44,7 +44,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    // Mark: UICollectionViewDataSource
+    // MARK: UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         
@@ -63,14 +63,14 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
     
-    // Mark: UICollectionViewDelegate
+    // MARK: UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedCellIndex = indexPath.row
         self.performSegueWithIdentifier("showDetailProductViewController", sender: self)
     }
 
-    // Mark: refresh
+    // MARK: refresh
 
     @IBAction func refreshButton(sender: AnyObject) {
         productCollectionView.reloadData()

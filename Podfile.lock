@@ -2,11 +2,14 @@ PODS:
   - Alamofire (3.4.1)
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
+  - AlamofireNetworkActivityIndicator (1.0.1):
+    - Alamofire (~> 3.3)
   - HanabiCollectionViewLayout (1.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - AlamofireImage (~> 2.0)
+  - AlamofireNetworkActivityIndicator (~> 1.0)
   - HanabiCollectionViewLayout (from `https://github.com/kshin/Hanabi`)
 
 EXTERNAL SOURCES:
@@ -21,8 +24,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  AlamofireNetworkActivityIndicator: 49a6e39afb947136f7b1872bae2d684957c26697
   HanabiCollectionViewLayout: b0fc52553b3225afdd7a9a97d62b57436211b137
 
-PODFILE CHECKSUM: ee958b31deda0c8bb8b3f1d3cdfc53d46f3cb3ed
+PODFILE CHECKSUM: 6eb62bfaebf34af6803834398505e355d0bb9e97
 
 COCOAPODS: 1.0.1
