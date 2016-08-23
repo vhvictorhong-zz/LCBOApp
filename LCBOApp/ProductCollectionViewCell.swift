@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AlamofireNetworkActivityIndicator
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var productNameLabel: UILabel!
     @IBOutlet var productPriceLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     func setupProductCell(productModel: ProductModel) {
         

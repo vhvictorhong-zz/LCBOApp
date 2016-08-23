@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import HanabiCollectionViewLayout
+import AlamofireNetworkActivityIndicator
 
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 

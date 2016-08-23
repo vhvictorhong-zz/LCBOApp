@@ -86,6 +86,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-Gv-8yn">
+                                                    <rect key="frame" x="91" y="74" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -94,6 +97,8 @@
                                             <constraint firstItem="SIC-hn-eHE" firstAttribute="leading" secondItem="5u0-dp-azh" secondAttribute="leading" id="B07-O9-bYe"/>
                                             <constraint firstAttribute="bottom" secondItem="ejz-JX-7w2" secondAttribute="bottom" id="KmU-kM-eWk"/>
                                             <constraint firstItem="ejz-JX-7w2" firstAttribute="width" secondItem="SIC-hn-eHE" secondAttribute="width" id="Lk2-Ed-2NZ"/>
+                                            <constraint firstItem="hAP-Gv-8yn" firstAttribute="centerY" secondItem="5u0-dp-azh" secondAttribute="centerY" id="Zvq-GO-mpu"/>
+                                            <constraint firstItem="hAP-Gv-8yn" firstAttribute="centerX" secondItem="5u0-dp-azh" secondAttribute="centerX" id="oGD-eU-Qb0"/>
                                             <constraint firstItem="ejz-JX-7w2" firstAttribute="leading" secondItem="SIC-hn-eHE" secondAttribute="trailing" id="okw-Ik-r2M"/>
                                             <constraint firstAttribute="trailing" secondItem="SIC-hn-eHE" secondAttribute="trailing" id="sj0-TM-aMy"/>
                                             <constraint firstItem="ejz-JX-7w2" firstAttribute="leading" secondItem="SIC-hn-eHE" secondAttribute="trailing" id="vdU-PF-uag"/>
@@ -105,6 +110,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="hAP-Gv-8yn" id="cCD-ZQ-y8C"/>
                                             <outlet property="productNameLabel" destination="SIC-hn-eHE" id="qdd-RU-byK"/>
                                             <outlet property="productPriceLabel" destination="ejz-JX-7w2" id="jAN-5F-hGg"/>
                                         </connections>
