@@ -11,11 +11,17 @@ import Alamofire
 import HanabiCollectionViewLayout
 import AlamofireNetworkActivityIndicator
 
-class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DataProtocol {
 
     @IBOutlet var productCollectionView: UICollectionView!
-    var productModel = [ProductModel]()
+    
+    let lcboClient: LCBOClient = LCBOClient()
+    var productModel: [ProductModel] = []
     var selectedCellIndex = 0
+    
+    // request keys
+    let headers = ["Authorization": "Token token=MDo5MDY0NmQ2ZS01ZGNiLTExZTYtYTBjZi03N2Q5NGU0YmYzOGI6V1VWWVk5Qmp4MXFOM2FDTGNVTTZvRm1kQ0ppMldkV2EzV0dK"]
+    let url = "https://lcboapi.com/products"
     
     // collectionView layout initializer
     let cellReuseIdentifier = "ProductCollectionViewCell"
@@ -30,6 +36,10 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         // Set collection dataSource and delegate
         productCollectionView.dataSource = self
         productCollectionView.delegate = self
+        
+        lcboClient.delegate = self
+        
+        lcboClient.downloadProducts(url, headers: headers)
         
     }
     
@@ -54,12 +64,12 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-        return LCBOClient.sharedInstance().productModel.count
+        return productModel.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuseIdentifier, forIndexPath: indexPath) as! ProductCollectionViewCell
-        let product = LCBOClient.sharedInstance().productModel[indexPath.row]
+        let product = self.productModel[indexPath.row]
         cell.setupProductCell(product)
         return cell
     }
@@ -80,6 +90,18 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let detailProductViewController = segue.destinationViewController as! DetailProductViewController
         detailProductViewController.selectedCellIndex = self.selectedCellIndex
+        detailProductViewController.productModel = productModel
+    }
+    
+    // MARK: DataProtocol
+    
+    func gotProducts(products: [ProductModel]) {
+        self.productModel = products
+        self.productCollectionView.reloadData()
+    }
+    
+    func errorGettingProducts() {
+        print("Error fetching products")
     }
     
 }

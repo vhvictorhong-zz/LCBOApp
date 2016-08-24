@@ -10,15 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    // request keys
-    let headers = ["Authorization": "Token token=MDo5MDY0NmQ2ZS01ZGNiLTExZTYtYTBjZi03N2Q5NGU0YmYzOGI6V1VWWVk5Qmp4MXFOM2FDTGNVTTZvRm1kQ0ppMldkV2EzV0dK"]
-    let url = "https://lcboapi.com/products"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Make request
-        LCBOClient.sharedInstance().downloadProducts(url, headers: headers)
     }
 
     override func didReceiveMemoryWarning() {

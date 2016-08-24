@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class DetailProductViewController: UIViewController {
     
     var selectedCellIndex = 0
-    var productModel = LCBOClient.sharedInstance().productModel
+    var productModel: [ProductModel] = []
     
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var idLabel: UILabel!

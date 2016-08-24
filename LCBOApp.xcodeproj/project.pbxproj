@@ -19,6 +19,7 @@
 		2B7EBCCC1D5B6B00007CECD4 /* LCBOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EBCCB1D5B6B00007CECD4 /* LCBOClient.swift */; };
 		2B956BF31D6246090012626F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B956BF21D6246090012626F /* MainViewController.swift */; };
 		2B956BF51D624C5E0012626F /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B956BF41D624C5E0012626F /* DetailProductViewController.swift */; };
+		2BD630791D6E2A5300B7664B /* DataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD630781D6E2A5300B7664B /* DataProtocol.swift */; };
 		759B1E183188EB9A894E90DC /* Pods_LCBOAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EECC5DE0F7A6EA6381E8F41 /* Pods_LCBOAppUITests.framework */; };
 		C88BA46DD0F9D323F8611C47 /* Pods_LCBOApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429418C0BF1DBC4B4D47C135 /* Pods_LCBOApp.framework */; };
 		E8006254BA8AC687B7BC4EA0 /* Pods_LCBOAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EC763B44668E42C91ACA25 /* Pods_LCBOAppTests.framework */; };
@@ -60,6 +61,7 @@
 		2B7EBCCB1D5B6B00007CECD4 /* LCBOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBOClient.swift; sourceTree = "<group>"; };
 		2B956BF21D6246090012626F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2B956BF41D624C5E0012626F /* DetailProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
+		2BD630781D6E2A5300B7664B /* DataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProtocol.swift; sourceTree = "<group>"; };
 		2EECC5DE0F7A6EA6381E8F41 /* Pods_LCBOAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LCBOAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7435A45847B7FF20C85C94 /* Pods-LCBOApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCBOApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LCBOApp/Pods-LCBOApp.debug.xcconfig"; sourceTree = "<group>"; };
 		429418C0BF1DBC4B4D47C135 /* Pods_LCBOApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LCBOApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 				2B1A9C511D594B9E00ABB325 /* AppDelegate.swift */,
 				2B7EBCC11D596703007CECD4 /* ProductModel.swift */,
 				2B7EBCCB1D5B6B00007CECD4 /* LCBOClient.swift */,
+				2BD630781D6E2A5300B7664B /* DataProtocol.swift */,
 				2B956BF21D6246090012626F /* MainViewController.swift */,
 				2B7EBCC51D5A3755007CECD4 /* ProductViewController.swift */,
 				2B7EBCC31D5A369E007CECD4 /* ProductCollectionViewCell.swift */,
@@ -446,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B7EBCC21D596703007CECD4 /* ProductModel.swift in Sources */,
+				2BD630791D6E2A5300B7664B /* DataProtocol.swift in Sources */,
 				2B7EBCCC1D5B6B00007CECD4 /* LCBOClient.swift in Sources */,
 				2B956BF51D624C5E0012626F /* DetailProductViewController.swift in Sources */,
 				2B7EBCC41D5A369E007CECD4 /* ProductCollectionViewCell.swift in Sources */,

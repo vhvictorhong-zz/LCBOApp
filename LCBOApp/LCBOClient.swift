@@ -8,11 +8,10 @@
 
 import Foundation
 import Alamofire
-import AlamofireImage
 
 class LCBOClient {
     
-    var productModel = [ProductModel]()
+    var delegate: DataProtocol?
     
     func downloadProducts(url: String, headers: [String: String]) {
         
@@ -21,6 +20,7 @@ class LCBOClient {
                 
                 //Parse data
                 if let JSON = response.result.value {
+                    var productModel: [ProductModel] = []
                     guard let products = JSON["result"] as? [[String: AnyObject]] else {
                         print("error converting JSON")
                         return
@@ -62,11 +62,14 @@ class LCBOClient {
                             print("could not get style name")
                             return
                         }
-                        
-                        self.productModel.append(ProductModel(id: id, productName: productName, productPrice: productPrice, imageURL: imageURL, package: package, inventory: inventory, style: style))
+                        let productArray = ProductModel(id: id, productName: productName, productPrice: productPrice, imageURL: imageURL, package: package, inventory: inventory, style: style)
+                        productModel.append(productArray)
                         
                     }
+                    self.delegate?.gotProducts(productModel)
+                    return
                 }
+                self.delegate?.errorGettingProducts()
         }
         
     }
