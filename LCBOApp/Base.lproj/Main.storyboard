@@ -1,50 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="l7w-da-dS8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ckt-5r-csY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
-        <scene sceneID="Lg7-mB-1l7">
-            <objects>
-                <viewController id="5ua-Ox-IiS" customClass="MainViewController" customModule="LCBOApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lqP-2O-Ck8"/>
-                        <viewControllerLayoutGuide type="bottom" id="qey-lS-0Sv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oJ4-8h-ClO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LCBOLogo" translatesAutoresizingMaskIntoConstraints="NO" id="mza-pY-6s9">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56I-CV-KPK">
-                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
-                                <state key="normal" title="View Product"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="iJQ-SY-zV7"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="56I-CV-KPK" firstAttribute="leading" secondItem="oJ4-8h-ClO" secondAttribute="leading" id="0xf-7K-hAn"/>
-                            <constraint firstItem="mza-pY-6s9" firstAttribute="top" secondItem="lqP-2O-Ck8" secondAttribute="bottom" id="37N-xo-IFd"/>
-                            <constraint firstItem="qey-lS-0Sv" firstAttribute="top" secondItem="mza-pY-6s9" secondAttribute="bottom" id="9td-c7-Flh"/>
-                            <constraint firstAttribute="trailing" secondItem="56I-CV-KPK" secondAttribute="trailing" id="R6X-Vq-jUk"/>
-                            <constraint firstItem="mza-pY-6s9" firstAttribute="leading" secondItem="oJ4-8h-ClO" secondAttribute="leading" id="mpM-Y4-uQO"/>
-                            <constraint firstItem="qey-lS-0Sv" firstAttribute="top" secondItem="56I-CV-KPK" secondAttribute="bottom" id="pKM-kr-5PU"/>
-                            <constraint firstAttribute="trailing" secondItem="mza-pY-6s9" secondAttribute="trailing" id="rH9-he-6Xm"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="dag-pG-1CX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TZy-3c-0Tr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1536" y="212"/>
-        </scene>
         <!--Product View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -183,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="212"/>
+            <point key="canvasLocation" x="3038" y="212"/>
         </scene>
         <!--Detail Product View Controller-->
         <scene sceneID="T8U-zt-EGM">
@@ -327,28 +287,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="paQ-gI-Bq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2918" y="212"/>
+            <point key="canvasLocation" x="3730" y="212"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ADi-8L-vBE">
+        <scene sceneID="clc-fl-yxC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l7w-da-dS8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ckt-5r-csY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a05-Wr-NuT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wbz-D8-OtU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5ua-Ox-IiS" kind="relationship" relationship="rootViewController" id="sHb-qw-RH4"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gYo-AQ-Z71"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ob0-gU-YmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4GP-hu-q73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="212"/>
+            <point key="canvasLocation" x="2226" y="212"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="LCBOLogo" width="1920" height="1080"/>
-    </resources>
 </document>

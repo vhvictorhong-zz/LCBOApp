@@ -17,7 +17,6 @@
 		2B7EBCC41D5A369E007CECD4 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EBCC31D5A369E007CECD4 /* ProductCollectionViewCell.swift */; };
 		2B7EBCC61D5A3755007CECD4 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EBCC51D5A3755007CECD4 /* ProductViewController.swift */; };
 		2B7EBCCC1D5B6B00007CECD4 /* LCBOClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7EBCCB1D5B6B00007CECD4 /* LCBOClient.swift */; };
-		2B956BF31D6246090012626F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B956BF21D6246090012626F /* MainViewController.swift */; };
 		2B956BF51D624C5E0012626F /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B956BF41D624C5E0012626F /* DetailProductViewController.swift */; };
 		2BA35A241D74C3500060DF28 /* LCBOConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA35A231D74C3500060DF28 /* LCBOConstant.swift */; };
 		2BD630791D6E2A5300B7664B /* DataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD630781D6E2A5300B7664B /* DataProtocol.swift */; };
@@ -60,7 +59,6 @@
 		2B7EBCC31D5A369E007CECD4 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7EBCC51D5A3755007CECD4 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		2B7EBCCB1D5B6B00007CECD4 /* LCBOClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBOClient.swift; sourceTree = "<group>"; };
-		2B956BF21D6246090012626F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2B956BF41D624C5E0012626F /* DetailProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
 		2BA35A231D74C3500060DF28 /* LCBOConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCBOConstant.swift; sourceTree = "<group>"; };
 		2BD630781D6E2A5300B7664B /* DataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProtocol.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				2B7EBCCB1D5B6B00007CECD4 /* LCBOClient.swift */,
 				2BA35A231D74C3500060DF28 /* LCBOConstant.swift */,
 				2BD630781D6E2A5300B7664B /* DataProtocol.swift */,
-				2B956BF21D6246090012626F /* MainViewController.swift */,
 				2B7EBCC51D5A3755007CECD4 /* ProductViewController.swift */,
 				2B7EBCC31D5A369E007CECD4 /* ProductCollectionViewCell.swift */,
 				2B956BF41D624C5E0012626F /* DetailProductViewController.swift */,
@@ -457,7 +454,6 @@
 				2B956BF51D624C5E0012626F /* DetailProductViewController.swift in Sources */,
 				2B7EBCC41D5A369E007CECD4 /* ProductCollectionViewCell.swift in Sources */,
 				2BA35A241D74C3500060DF28 /* LCBOConstant.swift in Sources */,
-				2B956BF31D6246090012626F /* MainViewController.swift in Sources */,
 				2B7EBCC61D5A3755007CECD4 /* ProductViewController.swift in Sources */,
 				2B1A9C521D594B9E00ABB325 /* AppDelegate.swift in Sources */,
 			);
