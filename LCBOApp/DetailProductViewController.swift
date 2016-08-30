@@ -30,10 +30,11 @@ class DetailProductViewController: UIViewController {
         let arrayProductModel = productModel[selectedCellIndex]
         
         let imageView = productImageView
-        let URL = NSURL(string: arrayProductModel.imageURL)
-        let placeholderImage = UIImage(named: "noPhotoAvailable")
-        imageView.af_setImageWithURL(URL!, placeholderImage: placeholderImage)
-        
+        if let urlString = arrayProductModel.imageURL {
+            let url = NSURL(string: urlString)
+            let placeholderImage = UIImage(named: "noPhotoAvailable")
+            imageView.af_setImageWithURL(url!, placeholderImage: placeholderImage)
+        }
         idLabel.text = "\(arrayProductModel.id)"
         nameLabel.text = arrayProductModel.productName
         

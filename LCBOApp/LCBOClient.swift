@@ -12,10 +12,24 @@ import Alamofire
 class LCBOClient {
     
     var delegate: DataProtocol?
+    var isLoading = false
     
-    func downloadProducts(url: String, headers: [String: String]) {
+    func downloadProducts(searchQuery: String, pageNumber: Int) {
         
-        Alamofire.request(.GET, "https://lcboapi.com/products", headers: headers)
+        if self.isLoading {
+            return
+        }
+        
+        self.isLoading = true
+        
+        let headers = [
+            "Authorization": "Token token=\(Constants.APIKey)"
+        ]
+        
+        let parameters = [URLKeys.SearchQuery: "\(searchQuery)",
+                           URLKeys.Page: "\(pageNumber)"]
+        
+        Alamofire.request(.GET, Constants.BaseURL, parameters: parameters, headers: headers)
             .responseJSON { response in
                 
                 //Parse data
@@ -28,59 +42,26 @@ class LCBOClient {
                     
                     for productIndex in products {
                         
-                        guard let id = productIndex["id"] as? Int else {
-                            print("could not get product id")
-                            return
-                        }
+                        let id = productIndex["id"] as! Int
+                        let productName = productIndex["name"] as! String
+                        let productPrice = productIndex["price_in_cents"] as! Int
+                        let imageURL = productIndex["image_url"] as? String
+                        let package = productIndex["package"] as! String
+                        let inventory = productIndex["inventory_count"] as? Int
+                        let style = productIndex["style"] as? String
                         
-                        guard let productName = productIndex["name"] as? String else {
-                            print("could not get product name")
-                            return
-                        }
-                        
-                        guard let productPrice = productIndex["price_in_cents"] as? Int else {
-                            print("could not get product price")
-                            return
-                        }
-                        
-                        guard let imageURL = productIndex["image_url"] as? String else {
-                            print("could not get product image")
-                            return
-                        }
-                        
-                        guard let package = productIndex["package"] as? String else {
-                            print("could not get package name")
-                            return
-                        }
-                        
-                        guard let inventory = productIndex["inventory_count"] as? Int else {
-                            print("could not get inventory count")
-                            return
-                        }
-                        
-                        guard let style = productIndex["style"] as? String else {
-                            print("could not get style name")
-                            return
-                        }
                         let productArray = ProductModel(id: id, productName: productName, productPrice: productPrice, imageURL: imageURL, package: package, inventory: inventory, style: style)
                         productModel.append(productArray)
                         
                     }
-                    self.delegate?.gotProducts(productModel)
+                    self.delegate?.gotProducts(productModel, pageNumber: pageNumber)
+                    self.isLoading = false
                     return
                 }
                 self.delegate?.errorGettingProducts()
+                self.isLoading = false
         }
         
     }
-        
-    class func sharedInstance() -> LCBOClient {
-        
-        struct Singleton {
-            static var sharedInstance = LCBOClient()
-        }
-        
-        return Singleton.sharedInstance
-        
-    }
+    
 }

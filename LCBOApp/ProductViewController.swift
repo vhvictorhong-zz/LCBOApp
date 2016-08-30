@@ -14,14 +14,12 @@ import AlamofireNetworkActivityIndicator
 class ProductViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DataProtocol {
 
     @IBOutlet var productCollectionView: UICollectionView!
+    @IBOutlet var searchField: UITextField!
     
     let lcboClient: LCBOClient = LCBOClient()
     var productModel: [ProductModel] = []
     var selectedCellIndex = 0
-    
-    // request keys
-    let headers = ["Authorization": "Token token=MDo5MDY0NmQ2ZS01ZGNiLTExZTYtYTBjZi03N2Q5NGU0YmYzOGI6V1VWWVk5Qmp4MXFOM2FDTGNVTTZvRm1kQ0ppMldkV2EzV0dK"]
-    let url = "https://lcboapi.com/products"
+    var currentPageNumber = 1
     
     // collectionView layout initializer
     let cellReuseIdentifier = "ProductCollectionViewCell"
@@ -39,7 +37,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         lcboClient.delegate = self
         
-        lcboClient.downloadProducts(url, headers: headers)
+        lcboClient.downloadProducts("", pageNumber: currentPageNumber)
         
     }
     
@@ -80,6 +78,14 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
         selectedCellIndex = indexPath.row
         self.performSegueWithIdentifier("showDetailProductViewController", sender: self)
     }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y + scrollView.bounds.height >= scrollView.contentSize.height {
+            // when we scroll to the bottom of the collection view's content view (plus a small offset), load more rows
+            lcboClient.downloadProducts(searchField.text ?? "", pageNumber: self.currentPageNumber + 1)
+        }
+    }
 
     // MARK: refresh
 
@@ -95,13 +101,38 @@ class ProductViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // MARK: DataProtocol
     
-    func gotProducts(products: [ProductModel]) {
-        self.productModel = products
-        self.productCollectionView.reloadData()
+    func gotProducts(products: [ProductModel], pageNumber: Int) {
+        
+        self.currentPageNumber = pageNumber
+        
+        if products.count == 0 {
+            return
+        }
+        
+        productModel.appendContentsOf(products)
+        
+        // add more items to collectionview
+        let firstRowToInsert = self.productCollectionView.numberOfItemsInSection(0)
+        var indexPathsToInsert: [NSIndexPath] = []
+        for row in firstRowToInsert...firstRowToInsert + products.count - 1 {
+            indexPathsToInsert.append(NSIndexPath(forRow: row, inSection: 0))
+        }
+        self.productCollectionView.insertItemsAtIndexPaths(indexPathsToInsert)
+        
     }
     
     func errorGettingProducts() {
         print("Error fetching products")
+    }
+    
+    // MARK: Search Button
+    
+    @IBAction func searchButton(sender: AnyObject) {
+        
+        self.productModel = []
+        self.productCollectionView.reloadData()
+        self.lcboClient.downloadProducts(searchField.text ?? "", pageNumber: 1)
+        
     }
     
 }

@@ -31,10 +31,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         // Download and set placeholder image
         let imageView = UIImageView(frame: frame)
-        let URL = NSURL(string: productModel.imageURL)
-        let placeholderImage = UIImage(named: "noPhotoAvailable")
-        imageView.af_setImageWithURL(URL!, placeholderImage: placeholderImage)
-        self.backgroundView = imageView
+        if let urlString = productModel.imageURL {
+            let url = NSURL(string: urlString)
+            let placeholderImage = UIImage(named: "noPhotoAvailable")
+            imageView.af_setImageWithURL(url!, placeholderImage: placeholderImage)
+            self.backgroundView = imageView
+        }
         
     }
     

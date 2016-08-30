@@ -10,7 +10,7 @@ import Foundation
 
 protocol DataProtocol {
     
-    func gotProducts(products: [ProductModel])
+    func gotProducts(products: [ProductModel], pageNumber: Int)
     func errorGettingProducts()
     
 }
